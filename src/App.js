@@ -8,7 +8,7 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route  path='/*' component={Dashboard}/>
+        <Route  path='/*' exact element={<Dashboard/>}/>
       </Routes>
     </BrowserRouter>
     </>

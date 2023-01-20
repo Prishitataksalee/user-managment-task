@@ -11,7 +11,7 @@ function Edit({users,selectedUser,setUsers,setIsEditing}) {
     const [dob, setDob] = useState(selectedUser.dob);
     const [city, setCity] = useState(selectedUser.city);
     const [mobile, setMobile] = useState(selectedUser.mobile);
-    const [student,setStudent]=useState();
+    const [user,setUser]=useState();
     const history= useNavigate();
     const handleUpdate = e => {
         e.preventDefault();
@@ -26,8 +26,8 @@ function Edit({users,selectedUser,setUsers,setIsEditing}) {
         }
         const user = {
             id,
-            firstName,
-            lastName,
+            firstname:firstName,
+            lastname:lastName,
             dob,
             city,
             mobile
@@ -43,19 +43,20 @@ function Edit({users,selectedUser,setUsers,setIsEditing}) {
         Swal.fire({
             icon: 'success',
             title: 'Updated!',
-            text: `${user.firstName} ${user.lastName}'s data has been updated.`,
+            text: `${user.firstname} ${user.lastname}'s data has been updated.`,
             showConfirmButton: false,
             timer: 1500
         });
     };
-    async function onFormSubmit(e) {
+    async function onSubmit(e) {
         e.preventDefault()
         try {
-         await axios.put(`http://localhost:3335/user${id}`, student)
-         history.push("/")
+            await axios.put(`http://localhost:3335/user${id}`, user)
+            history.push("/")
         } catch (error) {
-         console.log("Something is Wrong");
+            console.log("Something is Wrong in Edit");
         }
+    }
        
   return (
     <div>
@@ -102,7 +103,7 @@ function Edit({users,selectedUser,setUsers,setIsEditing}) {
                     onChange={e => setMobile(e.target.value)}
                 />
                 <div style={{ marginTop: '30px' }}>
-                    <input type="submit" value="Update" onClick={(e)=> onFormSubmit(e)} />
+                    <input type="submit" value="Update" onClick={(e)=> onSubmit(user.d)} />
                     <input
                         style={{ marginLeft: '12px' }}
                         className="muted-button"
@@ -114,7 +115,6 @@ function Edit({users,selectedUser,setUsers,setIsEditing}) {
             </form>
     </div>
   )
-}
 }
 
 export default Edit;

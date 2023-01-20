@@ -1,36 +1,28 @@
 const usersData = [
-    {
-      id: 1,
-      firstName: 'Susan',
-      lastName: 'Jordon',
-      dob:'02-05-2002',
-      city:'indore',
-      mobile:'1234567891'
-    },
-    {
-      id: 2,
-      firstName: 'Adrienne',
-      lastName: 'Doak',
-      dob:'02-05-2002',
-      city:'indore',
-      mobile:'1234567891'
-    },
-    {
-      id: 3,
-      firstName: 'Rolf',
-      lastName: 'Hegdal',
-      dob:'02-05-2002',
-      city:'indore',
-      mobile:'1234567891'
-    },
-    {
-      id: 4,
-      firstName: 'Kent',
-      lastName: 'Rosner',
-      dob:'02-05-2002',
-      city:'indore',
-      mobile:'1234567891'
-    }
+  {
+    "id": 1,
+    "firstname": "Aashi",
+    "lastname": "Khandelwal",
+    "dob": "01-02-2000",
+    "city": "Ujjain",
+    "mobile": "1234567891"
+  },
+  {
+    "id": 2,
+    "firstname": "Aastha",
+    "lastname": "Khan",
+    "dob": "01-02-2001",
+    "city": "Indore",
+    "mobile": "1244567891"
+  },
+  {
+    "id": 3,
+    "firstname": "Yashi",
+    "lastname": "Khandelwal",
+    "dob": "01-02-2012",
+    "city": "Nagpur",
+    "mobile": "1234667891"
+  }
   ];
   
   export { usersData };

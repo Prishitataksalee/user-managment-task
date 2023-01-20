@@ -6,6 +6,7 @@ import Header from './Header';
 import List from './List';
 import { useState } from 'react';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 function Dashboard() {
   const [users, setUsers] = useState(usersData);
@@ -30,7 +31,8 @@ function Dashboard() {
       cancelButtonText: 'No, cancel!',
   }).then(result => {
       if (result.value) {
-          const [user] = users.filter(user => user.id === id);
+        axios.delete(`http://localhost:3335/user/${id}`)
+        const [user] = users.filter(user => user.id === id);
 
           Swal.fire({
               icon: 'success',

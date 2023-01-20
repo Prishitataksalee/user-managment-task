@@ -10,7 +10,7 @@ function Add({users,setUsers,setIsAdding}) {
     const [dob, setDob] = useState('');
     const [city, setCity] = useState('');
     const [mobile, setMobile] = useState('');
-    const [student, setStudent] = useState({
+    const [user, setUser] = useState({
         firstName: "",
         lastName: "",
         dob:"",
@@ -38,8 +38,8 @@ function Add({users,setUsers,setIsAdding}) {
         const id = users.length + 1;
         const newUser = {
             id,
-            firstName,
-            lastName,
+            firstname:firstName,
+            lastname:lastName,
             dob,
             city,
             mobile
@@ -56,13 +56,13 @@ function Add({users,setUsers,setIsAdding}) {
             timer: 1500
         });
     }
-    async function onFormSubmit(e) {
-        e.preventDefault()
+    async function onSubmit(e) {
+        e.preventDefault();
         try {
-         await axios.post(`http://localhost:3335/user`, student)
-         setStatus(true);
+            await axios.post(`http://localhost:3335/user`, user)
+            setStatus(true);
         } catch (error) {
-         console.log("Something is Wrong");
+         console.log("Something is Wrong in Add");
         }
        }
        if (status) {
@@ -114,7 +114,7 @@ function Add({users,setUsers,setIsAdding}) {
                 onChange={e => setMobile(e.target.value)}
             />
             <div style={{ marginTop: '30px' }}>
-                <input type="submit" value="Add" onClick={e => onFormSubmit(e)}/>
+                <input type="submit" value="Add" onClick={e => onSubmit(user.id)}/>
                 <input
                     style={{ marginLeft: '12px' }}
                     className="muted-button"
